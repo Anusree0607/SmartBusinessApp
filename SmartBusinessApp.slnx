@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Folder Name="/Net/" />
+  <Folder Name="/Network.Server/">
+    <Project Path="NetworkServer/NetworkServer.csproj" Id="2d5da2ba-babc-4b7b-a3e7-855db1a7d74a" />
+  </Folder>
+</Solution>
