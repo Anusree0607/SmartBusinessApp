@@ -15,47 +15,56 @@ namespace NetworkClient
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5123/")
+                BaseAddress = new Uri("https://localhost:7280/")
             };
         }
 
         // ---------- GET METHODS ----------
 
-        public async Task<List<Branch>> GetBranchesAsync()
+        public async Task<List<Branch>?> GetBranchesAsync()
         {
             return await _httpClient.GetFromJsonAsync<List<Branch>>("api/branch");
         }
 
-        public async Task<List<Product>> GetProductsAsync()
+        public async Task<List<Product>?> GetProductsAsync()
         {
             return await _httpClient.GetFromJsonAsync<List<Product>>("api/product");
         }
 
-        public async Task<List<Customer>> GetCustomersAsync()
+        public async Task<List<Customer>?> GetCustomersAsync()
         {
             return await _httpClient.GetFromJsonAsync<List<Customer>>("api/customer");
         }
 
         // ---------- SAVE (POST) METHODS ----------
 
-        public async Task<Branch> SaveBranchAsync(Branch branch)
+        public async Task<Branch?> SaveBranchAsync(Branch branch)
         {
             var response = await _httpClient.PostAsJsonAsync("api/branch", branch);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
             return await response.Content.ReadFromJsonAsync<Branch>();
         }
 
-        public async Task<Product> SaveProductAsync(Product product)
+        public async Task<Product?> SaveProductAsync(Product product)
         {
             var response = await _httpClient.PostAsJsonAsync("api/product", product);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
             return await response.Content.ReadFromJsonAsync<Product>();
         }
 
-        public async Task<Customer> SaveCustomerAsync(Customer customer)
+        public async Task<Customer?> SaveCustomerAsync(Customer customer)
         {
             var response = await _httpClient.PostAsJsonAsync("api/customer", customer);
-            response.EnsureSuccessStatusCode();
+
+            if (!response.IsSuccessStatusCode)
+                return null;
+
             return await response.Content.ReadFromJsonAsync<Customer>();
         }
     }

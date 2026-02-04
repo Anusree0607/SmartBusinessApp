@@ -18,5 +18,13 @@ namespace NetworkServer.Controllers
         {
             return Ok(Customers);
         }
+
+        [HttpPost]
+        public IActionResult SaveCustomer([FromBody] Customer customer)
+        {
+            customer.Id = Customers.Count + 1;
+            Customers.Add(customer);
+            return Ok(customer);
+        }
     }
 }

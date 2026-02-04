@@ -18,5 +18,13 @@ namespace NetworkServer.Controllers
         {
             return Ok(Branches);
         }
+
+        [HttpPost]
+        public IActionResult SaveBranch([FromBody] Branch branch)
+        {
+            branch.Id = Branches.Count + 1;
+            Branches.Add(branch);
+            return Ok(branch);
+        }
     }
 }
