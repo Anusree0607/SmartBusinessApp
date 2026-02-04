@@ -1,5 +1,8 @@
 <Solution>
   <Folder Name="/Net/" />
+  <Folder Name="/Network.Client/">
+    <Project Path="NetworkClient/NetworkClient.csproj" Id="5244772f-6757-468b-99aa-006740e6d3a8" />
+  </Folder>
   <Folder Name="/Network.Server/">
     <Project Path="NetworkServer/NetworkServer.csproj" Id="2d5da2ba-babc-4b7b-a3e7-855db1a7d74a" />
   </Folder>
