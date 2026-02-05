@@ -6,4 +6,5 @@
   <Folder Name="/Network.Server/">
     <Project Path="NetworkServer/NetworkServer.csproj" Id="2d5da2ba-babc-4b7b-a3e7-855db1a7d74a" />
   </Folder>
+  <Project Path="UI/smartUIUX/SmartBusiUI/SmartBusiUI.csproj" Id="d9024fda-bb4f-4a77-8b68-5e6b29acbb2a" />
 </Solution>
